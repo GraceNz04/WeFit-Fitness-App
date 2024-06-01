@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="../static/css/home.css" />
+    <title>HOME PAGE</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__bar">
+        <div class="nav__header">
+          <div class="nav__logo">
+            <a href="#"><img src="../static/images/logo.png" alt="logo" height="35px" /></a>
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#">MY PROFILE</a></li>
+          <li><a href="#categories">CATEGORIES</a></li>
+          <li><a href="#contact">CONTACT US</a></li>
+          <li><a href="/exercise_form">ADMIN</a></li>
+          <li><a href="/login">LOGOUT</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="header" id="header">
+      <div class="section__container header__container">
+        <div class="header__content">
+          <h1>WeFIT</h1>
+          <h2>FITNESS APP</h2>
+          <p>Our mission is to inspire and support individuals in achieving their
+            health and wellness goals, regardless of their fitness level or
+            background.</p>
+          <div class="header__btn">
+            <a href="#categories"><button class="btn btn__primary">GET STARTED</button></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="session" id="categories">
+      <div class="session__card">
+        <h4>UPPER BODY WORKOUT</h4>
+        <p>
+          Sculpt your physique and build muscle mass with our specialized
+          bodybuilding programs for arms, back and stomach.
+        </p>
+        <a href="/workout#upper"><button class="btn btn__secondary">
+          Workout <i class="ri-arrow-right-line"></i>
+        </button></a>
+      </div>
+      <div class="session__card">
+        <h4>LOWER BODY WORKOUT</h4>
+        <p>
+          Willing to worok on your waist, buttocks, thigh or legs? Here's the place.
+        </p>
+        <a href="/workout#lower"><button class="btn btn__secondary">
+          Workout <i class="ri-arrow-right-line"></i>
+        </button></a>
+      </div>
+      <div class="session__card">
+        <h4>FULL BODY WORKOUT</h4>
+        <p>
+          Embrace a holistic approach to fitness with our comprehensive fitness
+          programs for the entire body.
+        </p>
+        <a href="/workout#full"><button class="btn btn__secondary">
+          Workout <i class="ri-arrow-right-line"></i>
+        </button></a>
+      </div>
+      <div class="session__card">
+        <h4>DIET</h4>
+        <p>
+          Nourrish yourself the right way to be healthy. We can guide you on that!
+        </p>
+        <button class="btn btn__secondary">
+          Explore <i class="ri-arrow-right-line"></i>
+        </button>
+      </div>
+    </section>
+
+    <footer class="footer" id="contact">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <a href="#"><img src="../static/images/logo.png" alt="logo" /></a>
+          </div>
+          <p>
+            Welcome to WeFit, where we believe that every journey to
+            fitness is unique and empowering.
+          </p>
+          <ul class="footer__links">
+            <li>
+              <a href="#">
+                <span><i class="ri-map-pin-2-fill"></i></span>
+                Yaounde Camerron<br />AICS, Nkolanga'a Awae
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><i class="ri-phone-fill"></i></span>
+                +237 600 000 000
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><i class="ri-mail-fill"></i></span>
+                se3@gmail.com
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="footer__col">
+          <h4>CONTACT US</h4>
+          <p>
+            Don't miss out on the latest news and offers - sign up today and
+            join our thriving fitness community!
+          </p>
+          <form action="/">
+            <input type="text" placeholder="Enter Email" />
+            <button class="btn btn__primary">SEND</button>
+          </form>
+          <div class="footer__socials">
+            <a href="#"><i class="ri-facebook-fill"></i></a>
+            <a href="#"><i class="ri-twitter-fill"></i></a>
+            <a href="#"><i class="ri-youtube-fill"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2024 SE3 GROUP 4. All rights reserved.
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../static/js/main.js"></script>
+  </body>
+</html>

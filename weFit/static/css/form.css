@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: grid;
+    justify-content: center;
+    /*grid-template-columns: repeat(8, 1fr);
+    margin: 0 auto;*/
+    align-items: center;
+}
+
+.background-clip{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.form-box{
+    position: relative;
+    width: 700px;
+    height: 500px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box h2{
+    color: rgb(0, 191, 254);
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+#middle-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#left{
+    width: 50%;
+}
+
+#right{
+    width: 50%;
+    margin: 15px;
+}
+
+.form-box .input-box{
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid white;
+}
+
+.form-box .input-box input{
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0 20px 0 5px;
+    color: white;
+    font-size: 16px;
+}
+
+input::placeholder{
+    color: white;
+}
+
+.button{
+    text-align: center;
+}
+
+.btn{
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-weight: bold;
+    background: rgb(255, 255, 255);
+    width: 40%;
+    height: 40px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+    box-shadow: 3px 0 10px rgba(0,0,0,0.5);
+}
+
+.btn:hover{
+    background: rgb(0, 213, 255);
+    color: white;
+}
+
+.group{
+    display: flex;
+    justify-content: center;
+}
+
+.group span a{
+    color: rgb(0, 191, 254);
+    position: relative;
+    top: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.group span a:hover{
+    color: yellow;
+    font-size: 700;
+}
+
+.group a:focus{
+    text-decoration: underline;
+}
+
+#result{
+    color: red;
+    font-weight: 600;
+    position: relative;
+    top: 20px;
+}
+
+.popup{
+    width: 400px;
+    background: white;
+    border-radius: 7px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: transform .4s , top .4s;
+    visibility: hidden;
+    text-align: center;
+    padding: 0 30px 30px;
+    height: 330px;
+    color: black;
+}
+
+.popup ion-icon{
+    color: #00ff00;
+    font-size: 5opx;
+}
+
+.popup button{
+    width: 100%;
+    background: #00ff00;
+    padding: 10px 0;
+    margin-top: 50px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow:0 0 0 2px rgba(0,0,0,0.5);
+}
+
+.popup a{
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.open-slide{
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
+}

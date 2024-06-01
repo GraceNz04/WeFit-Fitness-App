@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitlife - Work Hard To Get Better Life</title>
+
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../static/css/exercise_list.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Catamaran:wght@600;700;800;900&family=Rubik:wght@400;500;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="top">
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <ion-icon name="barbell-sharp" aria-hidden="true"></ion-icon>
+
+        <span class="span">WeFit</span>
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-sharp" aria-hidden="true"></ion-icon>
+        </button>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="/home" class="navbar-link active" data-nav-link>HOME</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link" data-nav-link>MY PROFILE</a>
+          </li>
+
+          <li>
+            <a href="/home#categories" class="navbar-link" data-nav-link>CATEGORIES</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link" data-nav-link>WORKOUTS</a>
+          </li>
+
+          <li>
+            <a href="/home#contact" class="navbar-link" data-nav-link>CONTACT US</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <section class="section class bg-dark has-bg-image" id="class" aria-label="class"
+        style="background-image: url('../static/images/classes-bg.png')">
+        <div class="container" id="upper">
+
+          <p class="section-subtitle">WORKOUTS</p>
+
+          <h2 class="h2 section-title text-center">UPPER BODY</h2>
+         
+          <ul class="class-list has-scrollbar">
+            {% for exercise in exercises %}
+            <li class="scrollbar-item">
+               
+              <div class="class-card">
+                
+                <figure class="card-banner img-holder" style="--width: 416; --height: 240;">
+                  <img src="../uploads/lateral_raise.gif"  alt="Weight Lifting"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="title-wrapper">
+                    <img src="../static/images/class-icon-1.png" width="52" height="52" aria-hidden="true" alt=""
+                      class="title-icon">
+
+                    <h3 class="h3">
+                      <a href="#" class="card-title">{{exercise.exercise_name}}</a>
+                    </h3>
+                  </div>
+
+                  <p class="card-text">
+                    {{exercise.description}}
+                  </p>
+
+                  <div class="exos" >
+                    <a href="" class="btn-exercise">Exercises</a>
+                  </div>
+
+                </div>
+                
+              </div>
+              {% endfor %}
+            </li>
+            
+          </ul>
+         
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="caret-up-sharp" aria-hidden="true"></ion-icon>
+  </a>
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="../static/js/workout.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

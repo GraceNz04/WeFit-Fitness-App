@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/form.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <title>USER REGISTRATION</title>
+</head>
+<body>
+    <div class="container">
+        <video autoplay loop muted plays-inline class="background-clip">
+            <source src="../static/videos/bgd.mp4" type="video/mp4">
+        </video>
+        <div class="form-box">
+            <form action="" name="Formfill" onsubmit="return validation()">
+                <div class="top-box">
+                    <h2>Create Your Account</h2>
+                <p id="result"></p>
+                </div>
+                <div class="middle-box" id="middle-box">
+                    <div class="left-box" id="left">
+                        <div class="input-box">
+                            <input type="text" name="username" placeholder="Username">
+                        </div>
+                        <div class="input-box">
+                            <input type="email" name="email" placeholder="Email address">
+                        </div>
+                        <div class="input-box">
+                            <select name="gender" id="">
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                            </select>
+                        </div>
+                        <div class="input-box">
+                            <input type="number" name="weight" placeholder="Weight in kilograms (kg)">
+                        </div>
+                    </div>
+                    <div class="right-box" id="right">
+                        <div class="input-box">
+                            <input type="number" name="height" placeholder="Height in centimeters (cm)">
+                        </div>
+                       
+                        <div class="input-box">
+                            <input type="password" name="password" placeholder="Enter a password">
+                        </div>
+                        <div class="input-box">
+                            <input type="password" name="confirm-password" placeholder="Retype password">
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-box">
+                    <div class="button">
+                        <input type="submit" class="btn" onclick="validation()" value="Register">
+                    </div>
+                    <div class="group">
+                        <span><a href="/login">Login</a></span>
+                    </div>
+                </div>
+            </form>
+        </div> 
+        <div class="popup" id="popup">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+            <h2>Congratulations!</h2>
+            <p>Your account was created successfully</p>
+            <a href=""><button>OK</button></a>
+        </div>
+    </div>
+    <script src="../static/js/form.js"></script>
+</body>
+</html>

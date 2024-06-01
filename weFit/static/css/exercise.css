@@ -1,0 +1,53 @@
+body{
+    background: lightblue;
+}
+.head{
+    text-align: center;
+    margin-bottom: -80px;
+}
+
+.head button:hover{
+    background-color: orange;
+    color: black;
+}
+
+.container{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.container-left{
+    width: 400px;
+    height: 400px;
+}
+
+.container-right{
+    width: 300px;
+    background-color: black;
+    color: white;
+}
+
+.container-right .top{
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.container-right .bottom{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.timer{
+    text-align: center;
+    color: red;
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+.buttons{
+    margin-top: 50px;
+    text-align: center;
+}
