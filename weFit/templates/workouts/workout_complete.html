@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="modal">
+    Congratulation ! You completed "{{ workout.name }}" in {{ time_spent }} s
+    <button onclick="window.location.href='{% url `exercise_detail` exercises.exercise.pk %}'"></button>
+</div>
+{% endblock %}

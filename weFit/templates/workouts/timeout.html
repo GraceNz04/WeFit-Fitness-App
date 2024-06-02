@@ -1,0 +1,142 @@
+{% extends 'workouts/base.html' %}
+{% block content %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WeFit</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'exercises/styles.css' %}">
+    <style>
+        video {
+            border-radius: 10px;
+            width: 100%;
+            height: 250px;
+        }
+        .board {
+            background-color: rgba(5, 130, 247, 0.486);
+            width: fit-content;
+            padding: 10px 10px 10px 10px;
+            border-radius: 10px;
+            border: 1px dotted grey;
+        }
+        .startbtn {
+            padding: 5px 5px 5px 5px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-weight: 700;
+            background-color: rgb(2, 173, 2);
+        }
+        .stopbtn {
+            padding: 5px 5px 5px 5px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-weight: 700;
+            margin-left: 10px;
+            background-color: rgb(236, 18, 3);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.226);
+            
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+        }
+        .close {
+            color: red;
+            float:right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        let timer;
+        let seconds = 0; 
+
+        function startExercise() {
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            timer = setInterval(() => {
+                seconds++;
+                document.getElementById('timer').innerText = seconds + 's';
+            }, 1000);
+        }
+
+        function stopExercise() {
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+            clearInterval(timer);
+            document.getElementById('time_spent').value = seconds;
+            document.getElementById('workoutForm').submit();
+            showModal(seconds);
+        }
+
+        function showModal(seconds) {
+            const modal = document.getElementById("myModal");
+            document.getElementById('modal-time').innerText = seconds + ' seconds';
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <br><br>
+    <center>
+        <div class="board">
+            <p><b>Workout :</b> {{ workout.name }}</p>
+            <p><b>Level :</b> {{ workout.level }}</p>
+            <p><b>Duration :</b> {{ workout.duration }} mins</p>
+            <div>
+                <video id="myVideo" autoplay loop muted playsinline>
+                    <source src="{{ workout.video.url }}" type="video/mp4">
+                </video>
+            </div>
+            <div>
+                <button class="startbtn" id="startBtn" onclick="startExercise()">Start Exercise</button>
+                <button class="stopbtn" id="stopBtn" onclick="stopExercise()" disabled>Stop Exercise</button>
+            </div>
+            <div>
+                <p><b>Timer:</b> <span id="timer">0s</span></p>
+            </div>
+            <form id="workoutForm" method="post">
+                {% csrf_token %}
+               
+                <input type="hidden" name="time_spent" id="time_spent">
+            </form>
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Congratulations!</h2>
+                <p>You completed the workout "{{ workout.name }}" in <span id="modal-time">0 seconds</span>!</p>
+                <button onclick="closeModal()">OK</button></div></div>
+    </center>
+</body>
+</html>
+{% endblock %}

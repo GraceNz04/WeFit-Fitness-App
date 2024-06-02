@@ -4,11 +4,36 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
+from rest_framework import generics
 
+from .serializers import UserSerializer, ExerciseSerializer
 from .models import User, Exercise
 from .forms import ExerciseForm, UserForm
 
 #from .forms import CategoryForm, WorkoutForm, ExerciseForm
+
+class ExerciseList(generics.ListCreateAPIView):
+    serializer_class = ExerciseSerializer
+    
+    def get_queryset(self):
+        queryset = Exercise.objects.all()
+        workout = self.request.query_params.get('workout')
+        if workout is not None:
+            queryset = queryset.filter(exerciseWorkout = workout)
+        return queryset
+    
+class ExerciseDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ExerciseSerializer
+    queryset = Exercise.objects.all()
+    
+class UserList(generics.ListCreateAPIView):
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
+    
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
+
 
 def signup(request):
     if request.method == "GET":
@@ -49,8 +74,6 @@ def profile(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
-
-
 
 
 

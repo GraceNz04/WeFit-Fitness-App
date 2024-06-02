@@ -5,4 +5,5 @@ from .models import *
 
 admin.site.register(User)
 admin.site.register(Exercise)
+admin.site.register(Workout)
 admin.site.register(UserExercise)

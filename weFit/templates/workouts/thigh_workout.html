@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ exercise.name }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'exercises/style.css' %}">
+    <script>
+        let timer;
+        let seconds = 0;
+
+        function startExercise() {
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            timer = setInterval(() => {
+                seconds++;
+                document.getElementById('timer').innerText = seconds + 's';
+            }, 1000);
+        }
+
+        function stopExercise() {
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+            clearInterval(timer);
+        }
+    </script>
+</head>
+<body>
+    <h1>{{ exercise.name }}</h1>
+    <p>{{ exercise.description }}</p>
+    <div>
+        <img src="{% static 'exercises/thigh_exercise.gif' %}" alt="{{ exercise.name }}">
+    </div>
+    <div>
+        <button id="startBtn" onclick="startExercise()">Start Exercise</button>
+        <button id="stopBtn" onclick="stopExercise()" disabled>Stop Exercise</button>
+    </div>
+    <div>
+        <p>Timer: <span id="timer">0s</span></p>
+    </div>
+    <a href="/">Back to Home</a>
+</body>
+</html>

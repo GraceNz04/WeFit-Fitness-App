@@ -17,7 +17,10 @@
             <img src="../{{exercise.video_url}}" width="400px" height="400px" alt="">
         </div>
         <div class="container-right">
-            <div class="top">{{exercise.description}}</div>
+            <div class="top">
+                <span style="color: blue;">{{exercise.exercise_name}}</span><br>
+                <span>{{exercise.description}}</span>
+            </div>
             <div class="bottom">
                 <span>Duration: {{exercise.duration}} seconds</span>
             </div>

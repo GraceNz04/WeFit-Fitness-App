@@ -1,0 +1,32 @@
+{% load static %}
+
+
+
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeFit</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'exercises/styles.css' %}">
+   </head>
+   <center><h2><a href="/workouts" style=":any-link{
+    color: black;text-decoration: none;
+   }">WeFit</a></h2></center>
+    <nav style="float: right;">
+        <a href="{% url 'signup' %}" class="nav-link">Register | </a>
+
+        <a href="{% url 'login' %}" class="nav-link">Login | </a>
+        <a href="{% url 'workout_list' %}" class="nav-link">Workouts | </a>
+        
+        <a href="{% url 'workout_create' %}" class="nav-link">Add Workouts | </a>
+        <a href="{% url 'exercise_list' %}" class="nav-link">
+            Exercises | </a>
+            <a href="{% url 'exercise_create' %}" class="nav-link">Add Exercises | </a>
+            
+    </nav>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

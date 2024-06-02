@@ -1,0 +1,54 @@
+{% extends 'workouts/base.html' %}
+{% block content %}
+<style>
+    .crud_card {
+        background-color: blue;
+        width: fit-content;
+        padding: 15px 15px 15px 15px;
+        border-radius: 10px;
+    }
+    .editbtn:any-link {
+color: black;
+text-decoration: none;
+padding: 5px 5px 5px 5px;
+background-color: rgb(3, 182, 3);
+border-radius: 10px;
+    }
+    .delbtn {
+        background-color:rgb(235, 17, 17) ;
+        padding: 5px 5px 5px 5px;
+        border-radius: 10px;
+        color: white;
+        border: 1px solid transparent;
+        margin-left: 10px;
+    
+    }
+    .action_r {
+        display: flex;
+        flex-direction: row;
+    }
+    video {
+        width: 100%;
+        border-radius: 10px;
+    }
+</style>
+<br><br><br>
+<center>
+<div class="crud_card">
+<p><b>Workout :</b> {{ workout.name }}</p>
+<p><b>Level:</b> {{ workout.level }}</p>
+<p><b>Duration:</b> {{ workout.duration }} minutes</p>
+<p>
+    <video autoplay loop muted playsinline>
+        <source src="{{workout.video.url}}" type="video/mp4">
+    </video><br><br>
+<div class="action_r">
+<a class="editbtn" href="{% url 'workout_update' workout.pk %}">Edit</a>
+<form action="{% url 'workout_delete' workout.pk %}" method="post">
+    {% csrf_token %}
+    <button class="delbtn" type="submit">Delete</button>
+</form>
+</div>
+</div>
+</center>
+{% endblock %}
